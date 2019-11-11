@@ -1,0 +1,45 @@
+---
+title: "PCA"
+author: "Beth"
+date: "2019/11/11"
+output:
+  github_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# load data
+```{r loading data,message=FALSE,warning=FALSE}
+library("factoextra")
+address=pracma::pwd()
+Stock<- read.csv(paste0(address,"/csv/T0804.csv"))
+```
+
+#SVD
+```{r}
+
+S <- cov(Stock) 
+knitr::kable(S)
+A<-eigen(S)$vector
+colnames(A)=colnames(Stock)
+knitr::kable(A)
+pca <- prcomp(formula = ~ .,  data = Stock,scale =F) 
+```
+
+#Screen plot
+```{r Screenplot}
+fviz_eig(pca, addlabels=TRUE, hjust = -0.3,linecolor ="red")+
+  theme_minimal()+
+  labs(title = "Variances - PCA",
+         x = "Principal Components", y = "% of variances")
+```
+
+#Pc score
+```{r Pcscore}
+fviz_pca_biplot(pca, ggtheme = theme_minimal(), col.var = "red")
+```
+
+
