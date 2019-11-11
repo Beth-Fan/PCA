@@ -12,7 +12,7 @@ address=pracma::pwd()
 Stock<- read.csv(paste0(address,"/csv/T0804.csv"))
 ```
 
-SVD
+COR
 ===
 
 ``` r
