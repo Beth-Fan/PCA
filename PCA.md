@@ -65,4 +65,26 @@ Pc score
 fviz_pca_biplot(pca, ggtheme = theme_minimal(), col.var = "red")
 ```
 
-![](PCA_files/figure-markdown_github/Pcscore-1.png)
+![](PCA_files/figure-markdown_github/Pcscore-1.png) \#OtherCase
+
+``` r
+school<- read.table(paste0(address,"/csv/T12-9.dat"), row.names = 1)
+names(school)=c("SAT","T10","Acpt","SGRat","Expen","Grad")
+knitr::kable(head(school))
+```
+
+|           |    SAT|  T10|  Acpt|  SGRat|   Expen|  Grad|
+|-----------|------:|----:|-----:|------:|-------:|-----:|
+| Harvard   |  14.00|   91|    14|     11|  39.525|    97|
+| Princeton |  13.75|   91|    14|      8|  30.220|    95|
+| Yale      |  13.75|   95|    19|     11|  43.514|    96|
+| Stanford  |  13.60|   90|    20|     12|  36.450|    93|
+| MIT       |  13.80|   94|    30|     10|  34.870|    91|
+| Duke      |  13.15|   90|    30|     12|  31.585|    95|
+
+``` r
+pcas=prcomp(school,scale=T)
+fviz_pca_biplot(pcas, ggtheme = theme_minimal(), col.var = "red")
+```
+
+![](PCA_files/figure-markdown_github/unnamed-chunk-2-1.png)

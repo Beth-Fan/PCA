@@ -41,5 +41,19 @@ fviz_eig(pca, addlabels=TRUE, hjust = -0.3,linecolor ="red")+
 ```{r Pcscore}
 fviz_pca_biplot(pca, ggtheme = theme_minimal(), col.var = "red")
 ```
+#OtherCase
+```{r loading data1,message=FALSE,warning=FALSE}
 
+
+school<- read.table(paste0(address,"/csv/T12-9.dat"), row.names = 1)
+names(school)=c("SAT","T10","Acpt","SGRat","Expen","Grad")
+knitr::kable(head(school))
+```
+
+```{r}
+
+pcas=prcomp(school,scale=T)
+fviz_pca_biplot(pcas, ggtheme = theme_minimal(), col.var = "red")
+
+```
 
