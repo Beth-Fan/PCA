@@ -82,6 +82,16 @@ knitr::kable(head(school))
 | MIT       |  13.80|   94|    30|     10|  34.870|    91|
 | Duke      |  13.15|   90|    30|     12|  31.585|    95|
 
+Biplot
+======
+
+-   *X*<sub>1</sub>=Average SAT score of new freshmen
+-   *X*<sub>2</sub>=Percentage of new freshmen in top 10% of high shcool class
+-   *X*<sub>3</sub>=Percentage of applicants accepted
+-   *X*<sub>4</sub>=Student-faculty ratio
+-   *X*<sub>5</sub>=Estimated annual expenses.
+-   *X*<sub>6</sub>=Graduation rate(%)
+
 ``` r
 pcas=prcomp(school,scale=T)
 fviz_pca_biplot(pcas, ggtheme = theme_minimal(), col.var = "red")
